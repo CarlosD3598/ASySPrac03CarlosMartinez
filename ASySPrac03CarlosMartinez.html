@@ -1,0 +1,384 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>ASySPrac03CarlosMartinez</title><meta name="generator" content="MATLAB 9.4"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-11-15"><meta name="DC.source" content="ASySPrac03CarlosMartinez.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1></h1><!--introduction--><p><img vspace="5" hspace="5" src="portada.png" alt=""> </p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Objetivos</a></li><li><a href="#2">Introducci&oacute;n</a></li><li><a href="#4">Desarrollo</a></li><li><a href="#5">Ejercicio 1</a></li><li><a href="#6">Ejercicio 2</a></li><li><a href="#7">Ejercicio 3</a></li><li><a href="#8">Ejercicio 4</a></li><li><a href="#9">Ejercicio 5</a></li><li><a href="#10">Ejercicio 6</a></li><li><a href="#11">Apendice A</a></li><li><a href="#12">Referencias</a></li></ul></div><h2 id="1">Objetivos</h2><div><ul><li>Manipulaci&oacute;n b&aacute;sica de MATLAB</li><li>Gr&aacute;ficas de se&ntilde;ales reales y complejas discretas</li><li>Transformaci&oacute;n de se&ntilde;ales discretas (escalamiento y traslaciones)</li><li>Calculo de energ&iacute;a y potencia de se&ntilde;ales discretas</li></ul></div><h2 id="2">Introducci&oacute;n</h2><p><b>Diezmado e Interpolaci&oacute;n</b></p><p>El escalamiento de las se&ntilde;ales en tiempo discreto debe ser realizado con cuidado. Para se&ntilde;ales en tiempo discreto, el escalamiento en el tiempo es equivalente a incrementar o decrecer la extensi&oacute;n de la se&ntilde;al. Los problemas que se suscitan en el escalamiento en el tiempo no se caracterizan por lo que sucede, sino c&oacute;mo sucede.</p><p><b>Diezmado</b></p><p>Sup&oacute;ngase que una se&ntilde;al <img src="ASySPrac03CarlosMartinez_eq17345171976508743899.png" alt="$$x[n]$"> corresponde a una se&ntilde;al anal&oacute;gica x(t) muestreada en intervalos <img src="ASySPrac03CarlosMartinez_eq02857246755332807457.png" alt="$$t_{s}$">. La se&ntilde;al <img src="ASySPrac03CarlosMartinez_eq03454729182677106655.png" alt="$$y[n]=x[2n]$"> entonces corresponde a la se&ntilde;al comprimida <img src="ASySPrac03CarlosMartinez_eq00527685944991168499.png" alt="$$x(2t)$"> muestreada en <img src="ASySPrac03CarlosMartinez_eq02857246755332807457.png" alt="$$t_{s}$"> y contiene unicamente muestras alternativas de <img src="ASySPrac03CarlosMartinez_eq17345171976508743899.png" alt="$$x[n]$"> (que corresponden a <img src="ASySPrac03CarlosMartinez_eq04442373208944346638.png" alt="$$x[0], x[2], x[4], ...$">). Se puede obtener tambi&eacute;n <img src="ASySPrac03CarlosMartinez_eq14304482979371103498.png" alt="$$y[n]$"> directamente de <img src="ASySPrac03CarlosMartinez_eq06787901769351252476.png" alt="$$x(t)$"> (no mediante su forma comprimida) si se muestrea en intervalos de <img src="ASySPrac03CarlosMartinez_eq13497946463875938859.png" alt="$$2t_{s}$"> (o en un intervalo de muestreo <img src="ASySPrac03CarlosMartinez_eq07975878035373623954.png" alt="$$S=\frac{1}{2t_{s}}$">). Esto implica una reducci&oacute;n doble en el intervalo de muestreo. El diezmado por un factor <img src="ASySPrac03CarlosMartinez_eq18333485706214046404.png" alt="$$N$"> es equivalente al muestreo de <img src="ASySPrac03CarlosMartinez_eq06787901769351252476.png" alt="$$x(t)$"> en intervalos de <img src="ASySPrac03CarlosMartinez_eq06667227777110405471.png" alt="$$Nt_{s}$"> y conlleva a una reducci&oacute;n <img src="ASySPrac03CarlosMartinez_eq12986655556527891393.png" alt="$$&#34;N&#34;$"> del intervalo de muestreo. La se&ntilde;al diezmada <img src="ASySPrac03CarlosMartinez_eq14289287639973815537.png" alt="$$x[Nn]$"> es generada a partir de <img src="ASySPrac03CarlosMartinez_eq17345171976508743899.png" alt="$$x[n]$"> reteniendo cada muestra <img src="ASySPrac03CarlosMartinez_eq18333485706214046404.png" alt="$$N$"> que corresponde a los &iacute;ndices <img src="ASySPrac03CarlosMartinez_eq09533124111016049151.png" alt="$$k=Nn$"> y descartando todos las dem&aacute;s.</p><p><b>Interpolaci&oacute;n</b></p><p>Si <img src="ASySPrac03CarlosMartinez_eq17345171976508743899.png" alt="$$x[n]$"> corresponde a <img src="ASySPrac03CarlosMartinez_eq06787901769351252476.png" alt="$$x(t)$"> muestreada en intervalos <img src="ASySPrac03CarlosMartinez_eq02857246755332807457.png" alt="$$t_{s}$">, entonces <img src="ASySPrac03CarlosMartinez_eq12746213323728403457.png" alt="$$y[n]=x[\frac{n}{2}]$"> corresponde a <img src="ASySPrac03CarlosMartinez_eq06787901769351252476.png" alt="$$x(t)$"> muestreada en <img src="ASySPrac03CarlosMartinez_eq08091249814253281030.png" alt="$$\frac{t_{s}}{2}$"> y posee el doble de longitud que <img src="ASySPrac03CarlosMartinez_eq17345171976508743899.png" alt="$$x[n]$"> con una nueva muestra entre muestas adyacentes de <img src="ASySPrac03CarlosMartinez_eq17345171976508743899.png" alt="$$x[n]$">. Si una expresi&oacute;n para <img src="ASySPrac03CarlosMartinez_eq17345171976508743899.png" alt="$$x[n]$"> (o la se&ntilde;al anal&oacute;gica equivalente) fueran conocidas, no habr&iacute;a problema en determinar estos nuevos valores de muesta. Si s&oacute;lo se proporcionan valores de muestra de <img src="ASySPrac03CarlosMartinez_eq17345171976508743899.png" alt="$$x[n]$"> (sin su forma anal&iacute;tica), la mejor forma de proceder es interpolar muestras intermedias. Por ejemplo, se puede escoger cada cada nuevo valor de intervalo como cero (interpolaci&oacute;n en cero), una constante igual al valor de muestreo anterior (interpolaci&oacute;n de escal&oacute;n), o el promedio de los valores de muestreo adyacentes (interpolaci&oacute;n lineal). Com&uacute;nmente se refiere a la interpolaci&oacute;n en cero como "muestreo hacia arriba" y juega un rol importante en los esquemas pr&aacute;cticos de la interpolaci&oacute;n. La interpolaci&oacute;n en factores <img src="ASySPrac03CarlosMartinez_eq18333485706214046404.png" alt="$$N$"> es equivalente al muestreo de <img src="ASySPrac03CarlosMartinez_eq06787901769351252476.png" alt="$$x(t)$"> en intervalos <img src="ASySPrac03CarlosMartinez_eq01528883552700817669.png" alt="$$\frac{t_{s}}{N}$"> e implica un aumento de <img src="ASySPrac03CarlosMartinez_eq18333485706214046404.png" alt="$$N$"> veces en ambos, tanto la tasa de muestreo como la extensi&oacute;n de la se&ntilde;al.</p><p><b>Algunas Consideraciones</b></p><p><img vspace="5" hspace="5" src="int0.PNG" alt=""> </p><p>Consid&eacute;nrese dos conjuntos de operaciones mostradas a continuaci&oacute;n:</p><p><img vspace="5" hspace="5" src="int1.PNG" alt=""> </p><p>A primera vista, ambos conjuntos de operaciones comienzan con <img src="ASySPrac03CarlosMartinez_eq17345171976508743899.png" alt="$$x[n]$"> y aparentemente recuperan a $$x[n], sugiriendo que la interpolaci&oacute;n y el diezmado son operaciones inversas. De hecho, s&oacute;lo la segunda secuencia de operaciones (interpolaci&oacute;n seguida de diezmado) recupera <img src="ASySPrac03CarlosMartinez_eq17345171976508743899.png" alt="$$x[n]$"> exactamente. Para entender c&oacute;mo, sea</p><p><img vspace="5" hspace="5" src="intxn.PNG" alt=""> </p><p>Usando interpolaci&oacute;n por escal&oacute;n, por ejemplo, las dos secuencias de operaciones son las que siguen</p><p><img vspace="5" hspace="5" src="int2.PNG" alt=""> </p><p>Ahora podemos apreciar que, efectivamente, el diezmado es la funci&oacute;n inversa de la interpolaci&oacute;n, pero que lo contrario no es necesariamente cierto. Despu&eacute;s de todo, es altamente improbable que cualquier esquema de interpolaci&oacute;n recupere o prediga el valor exacto de las muestras que fueron descartadas durante el diezmado. En situaciones en las que tanto la interpolaci&oacute;n como el diezmado deben ser realizados en sucesi&oacute;n, es entonces preferible interpolar primero. En la pr&aacute;ctica, por supuesto, la interpolaci&oacute;n o el diezmado deben preservar el contenido de informaci&oacute;n de la se&ntilde;al original, y esto impone restricciones en la tasa a la cual las muestras originales fueron adquiridas.</p><p><b>Ejemplos</b></p><p>Para la funci&oacute;n <img src="ASySPrac03CarlosMartinez_eq12509577590856530275.png" alt="$$[n+4]\cdot (u[n+4]-u[n])+[4-n]\cdot (u[n]-u[n-4])$"> Se realiza una extensi&oacute;n y compresi&oacute;n.</p><p><img vspace="5" hspace="5" src="ej1.PNG" alt=""> </p><h2 id="4">Desarrollo</h2><p>Se plantea la soluci&oacute;n a seis ejercicios, donde cada uno requiere del uso de Matlab como herramienta de c&aacute;lculo y an&aacute;lisis; comenzando una nueva secci&oacute;n (para la publicaci&oacute;n) en cada uno de ellos.</p><h2 id="5">Ejercicio 1</h2><p>Crea una funci&oacute;n que se llame <i>fun1</i> y reciba dos parametros <img src="ASySPrac03CarlosMartinez_eq01003107565813904020.png" alt="$\Omega$"> y <img src="ASySPrac03CarlosMartinez_eq05508344529756732484.png" alt="$a$"> la funci&oacute;n debe regresar la evaluaci&oacute;n <img src="ASySPrac03CarlosMartinez_eq03646802660506946535.png" alt="$f[n]=r^ncos[\Omega n]+ r^nsen(\Omega n)j$">, esta funci&oacute;n debe trabajar con <img src="ASySPrac03CarlosMartinez_eq02250910504099747793.png" alt="$r\in R^+$">, <img src="ASySPrac03CarlosMartinez_eq16652459112341690445.png" alt="$\Omega\in R$"> y <img src="ASySPrac03CarlosMartinez_eq13105139821992525800.png" alt="$n\in  N^n$">. Debe mostrar su c&oacute;digo en el reporte (sin ejecutar).</p><pre class="language-matlab">clear; clc; close <span class="string">all</span>;
+</pre><pre class="language-matlab">r=input(<span class="string">'Ingresa r:  '</span>);
+W=input(<span class="string">'Ingresa W:  '</span>);
+n=input(<span class="string">'Ingresa el vector n:  '</span>);
+X_W=fun1(r,W,n1);
+</pre><pre class="language-matlab"><span class="keyword">function</span> F=fun1(r,W,n)
+</pre><pre class="language-matlab">F=(r.^n).*cos(W.*n)+(r.^n).*sin(W.*n)*1j;
+</pre><pre class="language-matlab">figure1 = figure;
+stem3(n,real(F),imag(F));
+xlabel(<span class="string">'n'</span>,<span class="string">'FontWeight'</span>,<span class="string">'bold'</span>,<span class="string">'FontSize'</span>,12);
+ylabel(<span class="string">'Re(x[n])'</span>,<span class="string">'FontWeight'</span>,<span class="string">'bold'</span>,<span class="string">'FontSize'</span>,12);
+zlabel(<span class="string">'Im(x[n])'</span>,<span class="string">'FontWeight'</span>,<span class="string">'bold'</span>,<span class="string">'FontSize'</span>,12);
+title(<span class="string">'x[n]=r^ncos[\Omegan]+ r^nsen(\Omegan)j'</span>);
+grid <span class="string">on</span>
+<span class="keyword">end</span>
+</pre><h2 id="6">Ejercicio 2</h2><p>Construya una funci&oacute;n que gr&aacute;fique funciones de <img src="ASySPrac03CarlosMartinez_eq12888934164539987532.png" alt="$f:N\rightarrow R$"> en el formato de su elecci&oacute;n y pruebe su c&oacute;digo mostrando la gr&aacute;fica de <img src="ASySPrac03CarlosMartinez_eq14492615976455928922.png" alt="$x[n]=na^nu[n]$"> vs <img src="ASySPrac03CarlosMartinez_eq08984225997457563733.png" alt="$n$"> para <img src="ASySPrac03CarlosMartinez_eq08133761054732296635.png" alt="$n\in {-2,...,10}$"> para <img src="ASySPrac03CarlosMartinez_eq00212765013998882747.png" alt="$a=0.9$">, no debe incluir el c&oacute;digo, solo el uso de la funci&oacute;n para mostrar la gr&aacute;fica, puede utilizar una funci&oacute;n anonima para este fin.</p><p><img vspace="5" hspace="5" src="2.jpg" alt=""> </p><h2 id="7">Ejercicio 3</h2><p>Construya una funci&oacute;n que gr&aacute;fique funciones de <img src="ASySPrac03CarlosMartinez_eq16894167298513186129.png" alt="$f:N\rightarrow R^2$"> en el formato de su elecci&oacute;n y pruebe su c&oacute;digo mostrando la gr&aacute;fica de la funci&oacute;n exponencial del primer problema, no debe incluir el c&oacute;digo, solo el uso de la funci&oacute;n para mostrarla gr&aacute;fica. Reporte la gr&aacute;fica de <img src="ASySPrac03CarlosMartinez_eq08869918233192190351.png" alt="$f[n]$"> para <img src="ASySPrac03CarlosMartinez_eq12706977765372392117.png" alt="$r=1.1$">, <img src="ASySPrac03CarlosMartinez_eq03933324021199855378.png" alt="$\Omega=0.5$"> y <img src="ASySPrac03CarlosMartinez_eq05063201140590064251.png" alt="$n\in{-2,...,20}$"> (recuerde que ya tiene una funci&oacute;n para esto). Reporte la gr&aacute;fica de <img src="ASySPrac03CarlosMartinez_eq05380890773232186944.png" alt="$|f[n]|$"> vs <img src="ASySPrac03CarlosMartinez_eq08984225997457563733.png" alt="$n$"> y <img src="ASySPrac03CarlosMartinez_eq12048250087022819900.png" alt="$\angle f[n]$"> vs <img src="ASySPrac03CarlosMartinez_eq08984225997457563733.png" alt="$n$">. Solo reporte las graficas.</p><p><img vspace="5" hspace="5" src="F3.png" alt=""> </p><p><img vspace="5" hspace="5" src="F3_1.png" alt=""> </p><h2 id="8">Ejercicio 4</h2><p>Programe una funci&oacute;n que calcule la energ&iacute;a de una se&ntilde;al en tiempo discreto la fucion se debe llamar energiadis. La funci&oacute;n recibe dos param&eacute;tros de entrada: el vector de tiempo y las alturas asignadas. La funci&oacute;n regresa la energia de la se&ntilde;al y despliega la gr&aacute;fica de la se&ntilde;al. Debe mostrar su c&oacute;digo en el reporte (sin ejecutar).</p><pre class="language-matlab">clear; clc; close <span class="string">all</span>;
+n2=input(<span class="string">'Ingresa el vector de tiempo "n":  '</span>);
+h=input(<span class="string">'Ingresa el vector de alturas de la se&ntilde;al:  '</span>);
+En=energiadis(n2,h);
+</pre><pre class="language-matlab"><span class="keyword">function</span> E=energiadis(n,h)
+E1=(abs(h)).^2;
+E=sum(E1)
+figure
+stem(n,h)
+xlabel(<span class="string">'n'</span>,<span class="string">'FontWeight'</span>,<span class="string">'bold'</span>,<span class="string">'FontSize'</span>,12);
+ylabel(<span class="string">'x[n]'</span>,<span class="string">'FontWeight'</span>,<span class="string">'bold'</span>,<span class="string">'FontSize'</span>,12);
+title(<span class="string">'Gr&aacute;fica de x[n]'</span>)
+grid <span class="string">on</span>
+ax = gca;
+ax.XAxisLocation = <span class="string">'origin'</span>;
+ax.YAxisLocation = <span class="string">'origin'</span>;
+ax.Box = <span class="string">'off'</span>;
+<span class="keyword">end</span>
+</pre><h2 id="9">Ejercicio 5</h2><p>Resuelva el problema 3.1.1 c) de Lathi, aplicando su funci&oacute;n anterior</p><p><b>PROBLEMA 3.1.1</b> Encuentra la energ&iacute;a de la se&ntilde;al descrita en la fig. P3.1-1c</p><p><img vspace="5" hspace="5" src="P311.png" alt=""> </p><p><b>Ex=28</b></p><h2 id="10">Ejercicio 6</h2><p>Resuelve el problema 3.2.3 de Lathi</p><p><b>PROBLEMA 3.2.3</b> Para la se&ntilde;al mostrada en la fig. P3.1-1b, graficar las siguientes se&ntilde;ales.</p><div><ul><li><b>x[-n]</b></li><li><b>x[n+6]</b></li><li><b>x[n-6]</b></li><li><b>x[3n]</b></li><li><b>x[n/3]</b></li><li><b>x[3-n]</b></li></ul></div><pre class="codeinput">clear; clc; close <span class="string">all</span>;
+u= @(n) heaviside(n);
+x= @(n) n.*u(n)-2*n.*u(n-3)+6*u(n-3)-6*u(n-6)+n.*u(n-6);
+n=-20:20;
+figure
+stem(n,x(n)); grid <span class="string">on</span>;
+title(<span class="string">'x[n]'</span>)
+axis([-1 7 0 3.5])
+figure
+<span class="keyword">for</span> i=1:6
+    subplot(2,3,i)
+    <span class="keyword">switch</span> i
+        <span class="keyword">case</span> 1
+            stem(n,x(-n))
+            title(<span class="string">'x[-n]'</span>); axis([-7 3 0 3.5]);
+        <span class="keyword">case</span> 2
+            stem(n,x(n+6))
+            title(<span class="string">'x[n+6]'</span>); axis([-7 3 0 3.5]);
+        <span class="keyword">case</span> 3
+            stem(n,x(n-6))
+            title(<span class="string">'x[n-6]'</span>); axis([5 13 0 3.5]);
+        <span class="keyword">case</span> 4
+            stem(n,x(3*n))
+            title(<span class="string">'x[3n]'</span>); axis([-2 3 0 3.5]);
+        <span class="keyword">case</span> 5
+            stem(n,x(n/3))
+            title(<span class="string">'x[n/3]'</span>); axis([-2 20 0 3.5]);
+        <span class="keyword">case</span> 6
+            stem(n,x(3-n))
+            title(<span class="string">'x[3-n]'</span>); axis([-4 4 0 3.5]);
+    <span class="keyword">end</span>
+    xlabel(<span class="string">'n'</span>); ylabel(<span class="string">'x[n]'</span>);
+    grid <span class="string">on</span>
+    ax = gca;
+    ax.XAxisLocation = <span class="string">'origin'</span>;
+    ax.YAxisLocation = <span class="string">'origin'</span>;
+    ax.Box = <span class="string">'off'</span>;
+<span class="keyword">end</span>
+</pre><img vspace="5" hspace="5" src="ASySPrac03CarlosMartinez_01.png" alt=""> <img vspace="5" hspace="5" src="ASySPrac03CarlosMartinez_02.png" alt=""> <h2 id="11">Apendice A</h2><p>Puede consultar los codigos de programaci&oacute;n de cada uno de los ejercicios en la siguiente <a href="https://drive.google.com/open?id=1S92ylMvayw-5UA44VN2ODfq4XybUVxp6">carpeta</a></p><h2 id="12">Referencias</h2><div><ol><li>Lathi, B. (2005). <i>Linear Systems and Signals</i>. E.U.A.: Oxford University Press</li><li>Moore, H. (2009). <i>MATLAB for Engineers.</i> E.U.A.: Prentice Hall.</li><li>Ashok Ambardar. (1999). Analog and Digital Signal Processing. M&eacute;xico D. F., M&eacute;xico: BROOKS/COLE PUBLISHING COMPANY.</li><li>Hwei P. Hsu. (2013). Se&ntilde;ales y Sistemas. M&eacute;xico D. F., M&eacute;xico: McGrawHill.</li></ol></div><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%%
+%
+% <<portada.png>>
+%% Objetivos
+% * Manipulación básica de MATLAB
+% * Gráficas de señales reales y complejas discretas
+% * Transformación de señales discretas (escalamiento y traslaciones)
+% * Calculo de energía y potencia de señales discretas
+%% Introducción 
+%
+% *Diezmado e Interpolación*
+%
+% El escalamiento de las señales en tiempo discreto debe ser realizado con
+% cuidado. Para señales en tiempo discreto, el escalamiento en el tiempo es
+% equivalente a incrementar o decrecer la extensión de la señal. Los
+% problemas que se suscitan en el escalamiento en el tiempo no se
+% caracterizan por lo que sucede, sino cómo sucede.
+%
+% *Diezmado*
+%
+% Supóngase que una señal $$x[n]$ corresponde a una señal analógica x(t)
+% muestreada en intervalos $$t_{s}$. La señal $$y[n]=x[2n]$ entonces
+% corresponde a la señal comprimida $$x(2t)$ muestreada en $$t_{s}$ y
+% contiene unicamente muestras alternativas de $$x[n]$ (que corresponden a 
+% $$x[0], x[2], x[4], ...$). Se puede obtener también $$y[n]$ directamente
+% de $$x(t)$ (no mediante su forma comprimida) si se muestrea en intervalos
+% de $$2t_{s}$ (o en un intervalo de muestreo $$S=\frac{1}{2t_{s}}$). Esto
+% implica una reducción doble en el intervalo de muestreo. El diezmado por
+% un factor $$N$ es equivalente al muestreo de $$x(t)$ en intervalos de
+% $$Nt_{s}$ y conlleva a una reducción $$"N"$ del intervalo de muestreo. La
+% señal diezmada $$x[Nn]$ es generada a partir de $$x[n]$ reteniendo cada
+% muestra $$N$ que corresponde a los índices $$k=Nn$ y descartando todos
+% las demás. 
+%
+% *Interpolación*
+%
+% Si $$x[n]$ corresponde a $$x(t)$ muestreada en intervalos $$t_{s}$,
+% entonces $$y[n]=x[\frac{n}{2}]$ corresponde a $$x(t)$ muestreada en
+% $$\frac{t_{s}}{2}$ y posee el doble de longitud que $$x[n]$ con una nueva
+% muestra entre muestas adyacentes de $$x[n]$. Si una expresión para
+% $$x[n]$ (o la señal analógica equivalente) fueran conocidas, no habría
+% problema en determinar estos nuevos valores de muesta. Si sólo se
+% proporcionan valores de muestra de $$x[n]$ (sin su forma analítica), la
+% mejor forma de proceder es interpolar muestras intermedias. Por ejemplo,
+% se puede escoger cada cada nuevo valor de intervalo como cero
+% (interpolación en cero), una constante igual al valor de muestreo
+% anterior (interpolación de escalón), o el promedio de los valores de
+% muestreo adyacentes (interpolación lineal). Comúnmente se refiere a la
+% interpolación en cero como "muestreo hacia arriba" y juega un rol
+% importante en los esquemas prácticos de la interpolación. La
+% interpolación en factores $$N$ es equivalente al muestreo de $$x(t)$ en
+% intervalos $$\frac{t_{s}}{N}$ e implica un aumento de $$N$ veces en
+% ambos, tanto la tasa de muestreo como la extensión de la señal. 
+%
+% *Algunas Consideraciones*
+%
+% <<int0.PNG>>
+% 
+% Considénrese dos conjuntos de operaciones mostradas a continuación:
+%
+% <<int1.PNG>>
+%
+% A primera vista, ambos conjuntos de operaciones comienzan con $$x[n]$ y
+% aparentemente recuperan a $$x[n], sugiriendo que la interpolación y el
+% diezmado son operaciones inversas. De hecho, sólo la segunda secuencia de
+% operaciones (interpolación seguida de diezmado) recupera $$x[n]$
+% exactamente. Para entender cómo, sea 
+%
+% <<intxn.PNG>>
+%
+% Usando interpolación por escalón, por ejemplo, las dos secuencias de
+% operaciones son las que siguen 
+% 
+% <<int2.PNG>>
+% 
+% Ahora podemos apreciar que, efectivamente, el diezmado es la función
+% inversa de la interpolación, pero que lo contrario no es necesariamente
+% cierto. 
+% Después de todo, es altamente improbable que cualquier esquema de
+% interpolación recupere o prediga el valor exacto de las muestras que
+% fueron descartadas durante el diezmado. En situaciones en las que tanto
+% la interpolación como el diezmado deben ser realizados en sucesión, es
+% entonces preferible interpolar primero. En la práctica, por supuesto, la
+% interpolación o el diezmado deben preservar el contenido de información
+% de la señal original, y esto impone restricciones en la tasa a la cual
+% las muestras originales fueron adquiridas. 
+%
+% *Ejemplos*
+%
+% Para la función 
+% $$[n+4]\cdot (u[n+4]-u[n])+[4-n]\cdot (u[n]-u[n-4])$
+% Se realiza una extensión y compresión.
+%%
+% 
+% <<ej1.PNG>>
+% 
+%% Desarrollo
+% Se plantea la solución a seis ejercicios, donde cada uno requiere del
+% uso de Matlab como herramienta de cálculo y análisis; comenzando una 
+% nueva sección (para la publicación) en cada uno de ellos.
+%% Ejercicio 1
+% Crea una función que se llame _fun1_ y reciba dos parametros $\Omega$ y 
+% $a$ la función debe regresar la evaluación $f[n]=r^ncos[\Omega n]+ r^nsen(\Omega n)j$,
+% esta función debe trabajar con $r\in R^+$, $\Omega\in R$ y $n\in  N^n$.
+% Debe mostrar su código en el reporte (sin ejecutar).
+%
+%   clear; clc; close all;
+%   
+%   r=input('Ingresa r:  ');
+%   W=input('Ingresa W:  ');
+%   n=input('Ingresa el vector n:  ');
+%   X_W=fun1(r,W,n1);
+%   
+%   function F=fun1(r,W,n)
+%   
+%   F=(r.^n).*cos(W.*n)+(r.^n).*sin(W.*n)*1j;
+%   
+%   figure1 = figure;
+%   stem3(n,real(F),imag(F));
+%   xlabel('n','FontWeight','bold','FontSize',12);
+%   ylabel('Re(x[n])','FontWeight','bold','FontSize',12);
+%   zlabel('Im(x[n])','FontWeight','bold','FontSize',12);
+%   title('x[n]=r^ncos[\Omegan]+ r^nsen(\Omegan)j');
+%   grid on
+%   end 
+%% Ejercicio 2
+% Construya una función que gráfique funciones de $f:N\rightarrow R$ en el
+% formato de su elección y pruebe su código mostrando la gráfica de 
+% $x[n]=na^nu[n]$ vs $n$ para $n\in {-2,...,10}$ para $a=0.9$, no debe
+% incluir el código, solo el uso de la función para mostrar la gráfica,
+% puede utilizar una función anonima para este fin.
+%
+% <<2.jpg>>
+%% Ejercicio 3
+% Construya una función que gráfique funciones de $f:N\rightarrow R^2$ en
+% el formato de su elección y pruebe su código mostrando la gráfica de la
+% función exponencial del primer problema, no debe incluir el código, solo
+% el uso de la función para mostrarla gráfica. Reporte la gráfica de $f[n]$
+% para $r=1.1$, $\Omega=0.5$ y $n\in{-2,...,20}$ (recuerde que ya tiene una
+% función para esto). Reporte la gráfica de $|f[n]|$ vs $n$ y $\angle f[n]$
+% vs $n$. Solo reporte las graficas.
+% 
+% <<F3.png>>
+% 
+% <<F3_1.png>>
+% 
+%% Ejercicio 4
+% Programe una función que calcule la energía de una señal en tiempo discreto
+% la fucion se debe llamar energiadis. La función recibe dos paramétros de entrada:
+% el vector de tiempo y las alturas asignadas. La función regresa la energia
+% de la señal y despliega la gráfica de la señal. Debe mostrar su código en el reporte (sin ejecutar).
+%
+%   clear; clc; close all;
+%   n2=input('Ingresa el vector de tiempo "n":  ');
+%   h=input('Ingresa el vector de alturas de la señal:  ');
+%   En=energiadis(n2,h);
+%
+%   function E=energiadis(n,h)
+%   E1=(abs(h)).^2;
+%   E=sum(E1)
+%   figure
+%   stem(n,h)
+%   xlabel('n','FontWeight','bold','FontSize',12);
+%   ylabel('x[n]','FontWeight','bold','FontSize',12);
+%   title('Gráfica de x[n]')
+%   grid on
+%   ax = gca;
+%   ax.XAxisLocation = 'origin';
+%   ax.YAxisLocation = 'origin';
+%   ax.Box = 'off'; 
+%   end
+%% Ejercicio 5
+% Resuelva el problema 3.1.1 c) de Lathi, aplicando su función anterior
+%
+% *PROBLEMA 3.1.1* Encuentra la energía de la señal descrita en la fig.
+% P3.1-1c
+% 
+% <<P311.png>>
+%
+% *Ex=28*
+%% Ejercicio 6
+% Resuelve el problema 3.2.3 de Lathi
+%
+% *PROBLEMA 3.2.3* Para la señal mostrada en la fig. P3.1-1b, graficar las
+% siguientes señales.
+% 
+% * *x[-n]*
+% * *x[n+6]*
+% * *x[n-6]*
+% * *x[3n]*
+% * *x[n/3]*
+% * *x[3-n]*
+%
+clear; clc; close all;
+u= @(n) heaviside(n);
+x= @(n) n.*u(n)-2*n.*u(n-3)+6*u(n-3)-6*u(n-6)+n.*u(n-6);
+n=-20:20;
+figure
+stem(n,x(n)); grid on;
+title('x[n]')
+axis([-1 7 0 3.5])
+figure
+for i=1:6
+    subplot(2,3,i)
+    switch i
+        case 1
+            stem(n,x(-n))
+            title('x[-n]'); axis([-7 3 0 3.5]);
+        case 2
+            stem(n,x(n+6))
+            title('x[n+6]'); axis([-7 3 0 3.5]);
+        case 3
+            stem(n,x(n-6))
+            title('x[n-6]'); axis([5 13 0 3.5]);
+        case 4
+            stem(n,x(3*n))
+            title('x[3n]'); axis([-2 3 0 3.5]);
+        case 5
+            stem(n,x(n/3))
+            title('x[n/3]'); axis([-2 20 0 3.5]);
+        case 6
+            stem(n,x(3-n))
+            title('x[3-n]'); axis([-4 4 0 3.5]);
+    end
+    xlabel('n'); ylabel('x[n]');
+    grid on
+    ax = gca;
+    ax.XAxisLocation = 'origin';
+    ax.YAxisLocation = 'origin';
+    ax.Box = 'off';
+end
+%% Apendice A
+% Puede consultar los codigos de programación de cada uno de los ejercicios
+% en la siguiente <https://drive.google.com/open?id=1S92ylMvayw-5UA44VN2ODfq4XybUVxp6 carpeta>
+%% Referencias
+% # Lathi, B. (2005). _Linear Systems and Signals_. E.U.A.: Oxford University Press
+% # Moore, H. (2009). _MATLAB for Engineers._ E.U.A.: Prentice Hall.
+% # Ashok Ambardar. (1999). Analog and Digital Signal Processing. México 
+% D. F., México: BROOKS/COLE PUBLISHING COMPANY.
+% # Hwei P. Hsu. (2013). Señales y Sistemas. México D. F., 
+% México: McGrawHill.
+##### SOURCE END #####
+--></body></html>
